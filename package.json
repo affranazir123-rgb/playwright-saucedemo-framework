@@ -1,0 +1,23 @@
+{
+  "name": "playwright-bookcart-framework",
+  "version": "1.0.0",
+  "description": "Production-style Playwright + TypeScript automation framework built using industry best practices.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/affranazir123-rgb/playwright-bookcart-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/affranazir123-rgb/playwright-bookcart-framework/issues"
+  },
+  "homepage": "https://github.com/affranazir123-rgb/playwright-bookcart-framework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2"
+  }
+}
