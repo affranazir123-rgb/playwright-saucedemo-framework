@@ -9,6 +9,10 @@ test("User should open Login Popup",async ({page})=>{
 
     await loginPage.clickLoginButton();
 
+    await loginPage.enterUsername("testuser");
+    await loginPage.enterPassword("Test123");
+    await loginPage.clickSubmitLoginButton();
+
 })
 
 
