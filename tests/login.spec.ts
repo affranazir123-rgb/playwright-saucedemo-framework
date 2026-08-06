@@ -1,4 +1,4 @@
-import {test}  from '@playwright/test';
+import {test,expect}  from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
 test("User should open Login Popup",async ({page})=>{
@@ -11,7 +11,8 @@ test("User should open Login Popup",async ({page})=>{
     await loginPage.enterPassword("secret_sauce");
     await loginPage.clickSubmitLoginButton();
 
-    await page.waitForTimeout(5000);
+    await loginPage.verifyloginSuccessful();
+    
 
 })
 

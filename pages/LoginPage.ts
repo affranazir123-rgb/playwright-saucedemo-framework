@@ -1,10 +1,12 @@
-import {Page,Locator} from '@playwright/test'
+import {Page,Locator,expect} from '@playwright/test'
 
 export class LoginPage{
 
     readonly usernameInput:Locator;
     readonly passwordInput:Locator;
     readonly submitLoginButton:Locator;
+    readonly productsTitle:Locator;
+    readonly errorMessage:Locator;
 
     constructor (private page: Page){
 
@@ -12,6 +14,8 @@ export class LoginPage{
         this.usernameInput=this.page.getByPlaceholder('Username')
         this.passwordInput=this.page.getByPlaceholder('Password')
         this.submitLoginButton=this.page.locator('.submit-button');
+        this.productsTitle=this.page.locator('.title');
+        this.errorMessage=this.page.locator('[data-test="error"]');
     }
 
 
@@ -29,4 +33,7 @@ export class LoginPage{
         await this.submitLoginButton.click();
     }
    
+    async verifyloginSuccessful(){
+        await expect(this.productsTitle).toBeVisible();
+    }
 }
