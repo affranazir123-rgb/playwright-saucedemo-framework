@@ -36,4 +36,22 @@ export class LoginPage{
     async verifyloginSuccessful(){
         await expect(this.productsTitle).toBeVisible();
     }
+
+    async verifyLoginError(){
+        await expect(this.errorMessage).toHaveText('Epic sadface: Username and password do not match any user in this service');
+    }
+
+    async verifyUsernameRequiredError(){
+        await expect(this.errorMessage).toHaveText('Epic sadface: Username is required');
+        
+    }
+
+    async verifyPasswordRequiredError(){
+        await expect(this.errorMessage).toHaveText('Epic sadface: Password is required');
+    }
+
+    async verifyLockedUserError(){
+        await expect(this.errorMessage).toHaveText('Epic sadface: Sorry, this user has been locked out.');
+    }
+
 }
