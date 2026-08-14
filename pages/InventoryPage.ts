@@ -23,5 +23,36 @@ export class InventoryPage{
         await expect(this.productsTitle).toBeVisible(); 
     }
 
+    async sortProductByPriceLowToHigh(){
+        await this.sortDropDown.selectOption("lohi");
+    }
+
+    async verifyProductsSortedByPriceLowToHigh(){
+        const prices = await this.productPrices.allTextContents();
+        const numericPrices=prices.map(price=>Number(price.replace("$","")));
+        const sortedPrices=[...numericPrices].sort((a,b)=>a-b);
+        expect(numericPrices).toEqual(sortedPrices);
+
+    }
+
+    async sortPorductByNameZToA(){
+        await this.sortDropDown.selectOption("za");
+    }
+
+    async sortProductByNameAToZ(){
+        await this.sortDropDown.selectOption("az");
+    }
+
+    async sortPorductByPriceHighToLow(){
+        await this.sortDropDown.selectOption("hilo");
+    }
+
+    async verifyProductSortedByPriceHighToLow(){
+        const prices=await this.productPrices.allTextContents();
+        const numericPrices=prices.map(price=> Number(price.replace("$","")));
+        const sortedPrices = [...numericPrices].sort((a,b)=>b-a);
+        expect(numericPrices).toEqual(sortedPrices);
+
+    }
 }
 
